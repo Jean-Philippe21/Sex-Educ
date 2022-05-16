@@ -1,0 +1,62 @@
+<ion-header translucent>
+            <ion-toolbar>
+              <ion-title>Confidentialité</ion-title>
+              <ion-buttons slot="end" mode="ios">
+                <ion-button (click)="dismiss()" mode="ios">Fermé</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+            <ion-card mode="ios">
+               <img src= {{lien_image_compte}} />
+                
+                <ion-card-header>
+                  <!--ion-card-subtitle> </ion-card-subtitle-->
+                  <ion-card-title> {{this.Nom_Compte}} </ion-card-title>
+                </ion-card-header>
+
+                <!--ion-card-content>
+                  <ion-text color="magenta" class="color">
+                    Cacher mon compte 
+                  </ion-text>
+                </ion-card-content-->
+
+                <ion-card-content>
+
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                        <div>
+                            <ion-text color="magenta" class="color">
+                              {{cacher_mon_compte}} 
+                            </ion-text>
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                            <ion-segment value="all" [(ngModel)]="cacherMonCompte" (ionChange)="update()" mode="ios">
+                                <ion-segment-button value="all">
+                                  <ion-label>Non</ion-label>
+                                </ion-segment-button>
+                                <ion-segment-button value="No">
+                                  <ion-label>Oui</ion-label>
+                                </ion-segment-button>
+                            </ion-segment>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+
+                      
+
+                      
+
+                </ion-card-content>
+                
+                <ion-card-content>
+                  {{text_etat_compte}}
+                </ion-card-content>
+
+          </ion-card>
+</ion-content>

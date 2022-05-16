@@ -1,0 +1,133 @@
+<!--app-inscription-page [Nom_p]="Nom_User"></app-inscription-page-->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--ion-buttons slot="start">
+      <ion-button>
+
+        <ion-icon name="home"> </ion-icon>
+
+      </ion-button>
+    </ion-buttons-->
+    
+    <ion-title  align="center" color="danger"><b> Sex_Educ</b></ion-title>
+
+  
+    <!--ion-searchbar> </ion-searchbar-->
+    
+    <!--ion-buttons slot="end">
+      
+      <ion-buttons>
+        
+        <ion-icon name="search"> 
+
+        </ion-icon>
+
+      </ion-buttons>
+    </ion-buttons--> 
+  </ion-toolbar>
+    
+     
+</ion-header>
+
+<ion-content  class="background">
+
+      <div class="logo">
+        <!--ion-icon color="black" name="sunny"></ion-icon-->
+        <img src="../../assets/icon/Fond_ecran.jpg">
+      </div>
+ 
+<div class="center">
+
+  <ion-item lines="none">
+      <ion-label mode="ios">
+         <h1 class="ion-text-center" color="danger">Bienvenue sur Sex_Educ </h1>
+      </ion-label>
+
+
+  </ion-item>
+
+   <br>
+  <!--ion-list lines="full" class="ion-no-margin"-->
+<!--/ion-list-->
+  <form #f="ngForm"  (ngSubmit)="onGoToCompte(f)">
+    <ion-item mode="ios"> 
+      <ion-label color="tertiary" position="floating" mode="ios">Nom utilisateur </ion-label>
+      <ion-input  type="text" [(ngModel)]="Nom_User" name="Nom_User" required="true" (ionChange)="updateCompteur()" ></ion-input>
+    </ion-item>
+  
+  <br>
+
+    <ion-item mode="ios"> 
+      <ion-label color="tertiary" position="floating" mode="ios" required>Orientation sexuelle </ion-label>
+       <ion-select ok-text="Okay" cancel-text="Non" name="Sexe" [(ngModel)]="Sexe_User" required="true" (ionChange)="updateCompteur()" >
+            <ion-select-option value="M">Hétéro-Homme</ion-select-option>
+            <ion-select-option value="F">Hétéro-Femme</ion-select-option>
+            <ion-select-option value="B">Bisexuel</ion-select-option>
+            <ion-select-option value="G">Gay</ion-select-option>
+            <ion-select-option value="L">Lesbienne</ion-select-option>
+            <ion-select-option value="N">Je suis pas sur</ion-select-option>
+            
+       </ion-select>
+    </ion-item>
+     
+     
+    <br>
+    <!--ion-button routerLink="/compte" color="danger" expand="block" shape="round" type="submit" (click)="aSupprimer()" > Connexion </ion-button-->
+    
+    <ion-button color="danger" expand="block" shape="round"  (click)="aSupprimer()" mode="ios" > Connexion </ion-button>
+    
+  </form>
+ 
+
+
+
+  <!--form (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label>Todo</ion-label>
+        <ion-input type="text" [(ngModel)]="todo.title" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" block>Add Todo</button>
+    </form-->
+
+    
+   
+    <br>
+
+    <ion-button  color="tertiary" expand="block" shape="round" (click)="onGoToCompte()" mode="ios">Inscription</ion-button>
+
+    <!--ion-button  routerLink="/inscription-page/{{Nom_User}}/{{Sexe_User}}" color="tertiary" expand="block" shape="round" (click)="onGoToCompte()">Inscription</ion-button-->
+
+
+
+
+  <!--ion-item>
+    <> 
+
+    <ion-input type="text" maxlength="20"></ion-input>
+    
+    <ion-label color="black">Age</ion-label>
+    <ion-input color="black" placeholder="votre âge" type="number"></ion-input>
+
+
+<ion-item>
+      <ion-button type="submit" color="tertiary" slot="end" fill="clear">Continué </ion-button>
+    </ion-item>
+
+
+  </ion-item>
+   <button ion-button (click)="onGoToCompte()">Compte</button-->
+  <!--div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div-->
+
+</div>
+
+
+
+</ion-content>

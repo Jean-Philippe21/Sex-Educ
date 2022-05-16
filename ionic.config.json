@@ -1,0 +1,7 @@
+{
+  "name": "Sex_Educ",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,169 @@
+<ion-header translucent>
+  <ion-toolbar>
+   <ion-title  align="center" color="danger"><b> Sex_Educ</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+	<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+	        <ion-fab-button color="dark" mode="ios">
+	          <ion-icon md="caret-up" ios="chevron-up-circle-outline" ></ion-icon>
+	        </ion-fab-button>
+	        <ion-fab-list side="top">
+	          <!--ion-fab-button color="light">
+	            <ion-icon name="tv" routerLink="/flux-video" ></ion-icon>
+	          </ion-fab-button-->
+	          <ion-fab-button color="light" mode="ios" class="ionFabButton">
+	            <ion-icon name="chatbubbles-outline" routerLink="/pre-messagerie" class="ionClass"></ion-icon>
+	          </ion-fab-button>
+	          
+	          <ion-fab-button color="light" mode="ios" class="ionFabButton">
+	            <ion-icon name="duplicate-outline" (click)="createpublication()" class="ionClass"></ion-icon>
+	          </ion-fab-button>
+	         
+	         	<ion-fab-button color="light" mode="ios" class="ionFabButton">
+		          <ion-icon name="aperture-outline" routerLink="/create-contenu" class="ionClass">
+		          	
+		          </ion-icon>
+	          </ion-fab-button>
+
+	          <ion-fab-button color="light" mode="ios" class="ionFabButton">
+	            <ion-icon name="cog-outline" routerLink="/parametre" class="ionClass"></ion-icon>
+	          </ion-fab-button>
+	        </ion-fab-list>
+     </ion-fab>
+
+
+	<ion-infinite-scroll threshold="100px" id="infinite-scroll">
+
+        <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
+       
+     		<!--ion-card *ngFor="let elem_compte of compte">
+        	 		<ion-item>
+				          <ion-avatar slot="start">
+				            	<img class="post_img"   src="../../assets/icon/avatar.svg">
+				          </ion-avatar>
+				          
+				          <ion-label>Lorem ipsum</ion-label>
+        			</ion-item>
+			 	 	<ion-slides pager="true">
+				 	 	<ion-slide>
+				        
+				          	<ion-text color="danger"> Coucou Les amis 	</ion-text>
+				          	
+				        </ion-slide>
+				        <ion-slide>
+				          
+				          	<img  class="post_img"   src="../../assets/icon/jp_2.jpg" />
+				       
+				        </ion-slide>
+			        </ion-slides>
+			        <ion-card-header>
+			         
+			          <ion-card-title>Madison, WI</ion-card-title>
+			        </ion-card-header>
+			        <ion-card-content>
+			          Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.
+			        </ion-card-content>
+
+			        <div class="flex-button">
+			        	<div>
+			        		
+			        	</div>
+			        	<div>
+			        		
+			        		<ion-icon *ngIf="!like" (click)="ajouterLike(post)" name="heart-outline"></ion-icon>
+			        		<ion-icon *ngIf="like" (click)="supprimeLike(post)" name="heart" color="danger"></ion-icon>
+			        		
+			        	</div>
+			        	<div>
+			        	
+			        		<ion-icon name="chatbox-outline"></ion-icon>
+			        		
+			        	</div>
+			        	<div>
+			        		<ion-icon name="arrow-redo-outline"></ion-icon>
+			        		
+			        	</div>
+			        	<div>
+			        		
+			        	</div>
+			        </div>
+			        
+     		</ion-card-->
+     		<ion-card *ngFor="let publication of this.compteService.Mes_Publication | orderBy: order ;let indexOfelement=index;" mode="ios">
+        	 		<ion-item *ngIf='!publication.SiAfficher' mode="ios">
+				          <ion-avatar slot="start">
+				            	<img class="post_img"   src="{{ publication.avatar_img }}">
+				          </ion-avatar>
+				          
+				          <ion-label>{{ publication.nom_profile }}</ion-label>
+        			</ion-item> {{gereAffichage(publication.id,indexOfelement)}}
+			 	 	<ion-slides pager="true" *ngIf='!publication.SiAfficher' (ionSlidesDidLoad)="gereAffichage(publication.id)" >
+				 	 	
+			 	 		<ion-slide [hidden]='!publication.etiquete_photo' *ngFor="let contenn of publication.tab_contenu" >
+				          <!--div class="slide"-->
+				          	<img  class="post_img"   src="{{ contenn }}" />
+				          <!--/div-->
+				    </ion-slide>
+
+			    </ion-slides>
+
+
+			        <video [hidden]='!publication.etiquete_video' muted loop controls src="{{ publication.Video }}"  *ngIf='!publication.SiAfficher'> </video>
+
+			        <ion-text [hidden]='publication.etiquete_photo' [hidden]='publication.etiquete_video' color="danger" *ngIf='!publication.SiAfficher'> {{ publication.Text }} 	</ion-text>
+			      
+
+			        <ion-card-header *ngIf='!publication.SiAfficher'>
+			          <!--ion-card-subtitle>Destination</ion-card-subtitle-->
+			          <ion-card-title>{{ publication.titre_publication }}</ion-card-title>
+			        </ion-card-header>
+			        <ion-card-content *ngIf='!publication.SiAfficher'>
+			         	{{ publication.commentaire_auteur }}
+			        </ion-card-content>
+
+			        <div class="flex-button">
+			        	<div>
+			        		
+			        	</div>
+			        	
+			        	<div *ngIf='!publication.SiAfficher'>
+			        		
+			        		<ion-icon *ngIf="!publication.lk" (click)="ajouterLike(post, publication.lk, publication.id)" name="heart-outline"></ion-icon>
+			        		<ion-icon *ngIf="publication.lk" (click)="supprimeLike(post,  publication.lk, publication.id )" name="heart" color="danger"></ion-icon>
+			        		
+			        	</div>
+			        	<div *ngIf='!publication.SiAfficher'>
+			        	
+			        		<ion-icon name="chatbox-outline" (click)="onGoToDiscussion(publication.id_compte_auteur,publication.id,publication.titre_publication)" routerLink="/publication-discussion/{{ publication.id_compte_auteur}}/{{ publication.id }}  " ></ion-icon>
+			        		<!--   -->
+
+			        	</div>
+			        	<div *ngIf='!publication.SiAfficher'>
+			        		<ion-icon name="arrow-redo-outline"></ion-icon>
+<ion-input   [hidden]='true' (ionBlur)="gereAffichage(4)" ></ion-input>
+
+								
+					
+			        	</div>
+			        	<div>
+			        		
+			        	</div>
+			        </div>
+			        
+     		</ion-card>
+
+     		
+
+        </ion-infinite-scroll-content>
+    
+
+    </ion-infinite-scroll>
+
+
+ </ion-content>
+
+
+

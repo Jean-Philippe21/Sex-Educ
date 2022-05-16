@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>createContenu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">   
+ <ion-col size="6" *ngFor= "let Photo of this.compteService.photos">
+      <ion-img [src]="Photo.webviewPath" > </ion-img>
+  </ion-col>
+  <ion-col size="6" >
+      <ion-img [src]="imageData" > </ion-img>
+  </ion-col>
+  <ion-col size="6" >
+      <ion-text color="danger"> {{img_src}}   </ion-text>
+  </ion-col>
+
+
+   <!-- Bouton d'appel de la caméra --> 
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+
+       <ion-fab-button (click)="ouvrirCameraGalerie()" >
+            <ion-icon name="camera"> </ion-icon>
+       </ion-fab-button>
+
+    </ion-fab>
+
+    <!--ion-fab vertical="bottom" horizontal="center" slot="fixed">
+
+       <ion-fab-button (click)="recupererNouvellePhotoSiExiste()" >
+            <ion-icon name="archive"> </ion-icon>
+       </ion-fab-button>
+
+    </ion-fab-->
+
+     
+ </ion-content> 
+

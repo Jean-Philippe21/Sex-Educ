@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Parametre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card button = true  mode="ios">
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title> 
+        <ion-icon name="person-add-outline"></ion-icon>
+        &nbsp;
+        <ion-label>Inviter des amis </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card button = true  mode="ios">
+    <ion-card-header (click)="presentModal()">
+    <!--ion-card-header-->
+      <ion-card-subtitle></ion-card-subtitle>
+      
+      <ion-card-title> 
+        <ion-icon name="bag-outline"></ion-icon>
+        &nbsp;
+        <ion-label>Confidentialité </ion-label>
+      </ion-card-title>
+      
+    </ion-card-header>
+     
+        <ion-card-content>
+
+        </ion-card-content>
+
+  </ion-card>
+
+   
+
+  <ion-card button = true mode="ios">
+    <ion-card-header (click)="presentAlertPrompt()" >
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title> 
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        &nbsp;
+        <ion-label>Sécurité </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card button = true mode="ios">
+    <ion-card-header  (click)="presentAlertPrompte()" >
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title> 
+        <ion-icon name="pulse-outline"></ion-icon>
+        &nbsp;
+        <ion-label>Mon Compte </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card button = true mode="ios">
+    <ion-card-header (click)="presentAlertMultipleButtons()" >
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title> 
+        <ion-icon name="help-buoy-outline"></ion-icon>
+        &nbsp;
+        <ion-label>Obtenir de l'aide </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <!--ion-card button = true>
+    <ion-card-header>
+      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-title> 
+        <ion-icon name="information-circle-outline"></ion-icon>
+        &nbsp;
+        <ion-label>À propos </ion-label>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+    </ion-card-content>
+
+  </ion-card -->
+
+  <ion-card button = true mode="ios">
+    <ion-card-header>
+      
+      <ion-card-title> 
+        Déconnexion 
+      </ion-card-title>
+    </ion-card-header>
+
+  </ion-card>
+  
+
+</ion-content>

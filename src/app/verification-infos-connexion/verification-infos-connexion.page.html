@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title  align="center" color="danger"><b> Sex_Educ</b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slide>
+                <ion-img src="../../assets/icon/Fond_ecran.jpg" class="logo"></ion-img>  
+
+               
+                
+                <ion-item > 
+                  <ion-label color="tertiary" position="floating">Votre Mot de passe </ion-label>
+                  <ion-input  type="password" [(ngModel)]="Mot_de_passe" name="Mot_de_passe"></ion-input>
+                </ion-item>
+                
+                <!--ion-item >
+                      <ion-label>J'accepte les conditions d'utilisation</ion-label>
+                      <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+                </ion-item-->
+               
+                 <h2>Ready to Play?</h2>
+                    <ion-button fill="clear"  expand="block" shape="round" (click)="VerifInfosConnexion()" mode="ios">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button> 
+                
+
+  </ion-slide>
+
+</ion-content>

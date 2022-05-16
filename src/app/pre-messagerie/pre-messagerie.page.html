@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PreMessagerie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-nav fullscreen>
+ 
+        <ion-list *ngFor="let compte of this.compteService.Tab_compteSimple_meSuive;let indexOfelement=index;" mode="ios" color="string">
+
+            
+
+                <ion-list *ngIf="compte.Flag_si_message" mode="ios">
+
+                         
+                          <ion-card mode="ios">
+                            <ion-item button (click)="onGoToMessagerie(compte.compte.Identification_Compte,indexOfelement)" routerLink="/messagerie/{{compte.compte.Identification_Compte}}" mode="ios" >
+
+                                <ion-badge slot="end" *ngIf="compte.SiNouveauMessage" mode="ios"> new  </ion-badge>
+
+                                <ion-avatar slot="start">
+                                          <img class="post_img"   src="../../assets/icon/avatar.svg">
+                                </ion-avatar>
+
+                                <ion-label>
+                                      
+                                      <h3>L1 : {{ compte.compte.Nom_User }} </h3>
+                                
+                                </ion-label>
+
+                            </ion-item>
+                         </ion-card> 
+
+                 </ion-list>
+            
+
+        </ion-list>
+
+        <ion-card mode="ios">
+          <ion-card-header>
+            <ion-card-title>Retrouvez ci-dessous les discussions liées à chaque poste que vous avez vu.</ion-card-title>
+          </ion-card-header>
+
+         
+        </ion-card>
+
+        
+
+        <ion-list *ngFor="let info_publication of this.compteService.Tab_compteSimple_meSuive;let indexOfelement=index;" mode="ios">
+
+          <!--ion-item button (click)="showDetail(post, compte.Identification_Compte)"-->
+<ion-item button (click)="onGoToMessagerieOfDiscussion(info_publication.info_publication.id_publication,indexOfelement,info_publication.info_publication.NomPublication)" routerLink="/publication-discussion/{{info_publication.info_publication.id_compte_auteur_publication}}/{{ info_publication.info_publication.id_publication}}" mode="ios">
+
+          <ion-badge slot="end" *ngIf="info_publication.SiNouveauMessage" > new  </ion-badge>
+
+            <ion-avatar slot="start">
+                      <img class="post_img"   src="../../assets/icon/avatar.svg">
+            </ion-avatar>
+
+            <ion-label>
+                  
+                  <h3>{{ info_publication.info_publication.NomPublication }} </h3>
+            
+            </ion-label>
+
+          </ion-item>
+
+        </ion-list>
+
+        <!--ion-text color="secondary" *ngIf="this.NoDiscussion" >
+             <h3>Vous n'avez pas de discussion pour le moment !</h3>
+        </ion-text-->
+
+  </ion-nav>
+
+</ion-content>
