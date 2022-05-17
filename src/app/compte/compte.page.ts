@@ -4,7 +4,7 @@ import { CompteService } from '../compte.service';
 import { Publication } from '../models/Publication';
 import { Contenu } from '../models/Contenu';
 import { NavController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
+//import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-compte',
